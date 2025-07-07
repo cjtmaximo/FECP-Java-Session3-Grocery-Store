@@ -20,7 +20,9 @@ public class Main {
     }
 
     public static String addProduct(HashMap<String, Integer> products, String productName, int productQty) {
-        // TODO: Validation kung nandoon na products list yung productName
+        if (products.containsKey(productName)) {
+            return productName + " is already in the inventory.\n";
+        }
 
         products.put(productName, productQty);
         return "Product added!\n";
