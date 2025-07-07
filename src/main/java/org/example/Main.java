@@ -3,9 +3,17 @@ package org.example;
 import java.util.*;
 
 public class Main {
+    public static String addProduct(HashMap<String, Integer> products, String productName, int productQty) {
+        products.put(productName, productQty);
+        return "Product added!\n";
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean isExit = false;
+
+        // Initialize HashMap for products
+        HashMap<String, Integer> productsList = new HashMap<>();
 
         do {
             System.out.println("--- Grocery Inventory Menu ---");
@@ -26,6 +34,14 @@ public class Main {
                     break;
                 case 2:
                     // Add Product
+                    System.out.print("Enter product name: ");
+                    String productName = scanner.nextLine();
+
+                    System.out.print("Enter quantity: ");
+                    int productQty = scanner.nextInt();
+                    scanner.nextLine(); // Consume new line
+                    String successfullyAdded = addProduct(productsList, productName, productQty);
+                    System.out.println(successfullyAdded);
                     break;
                 case 3:
                     // Check Product
