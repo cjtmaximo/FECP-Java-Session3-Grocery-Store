@@ -67,13 +67,15 @@ public class Main {
                     System.out.print("Enter quantity: ");
                     int productQty = scanner.nextInt();
                     scanner.nextLine(); // Consume new line
-                    String successfullyAdded = addProduct(productsList, productName, productQty);
-                    System.out.println(successfullyAdded);
+
+                    String addProductResult = addProduct(productsList, productName, productQty);
+                    System.out.println(addProductResult);
                     break;
                 case 3:
                     // Check Product
                     System.out.print("Enter product name: ");
                     String productNameToCheck = scanner.nextLine();
+
                     String checkProductResult = checkProduct(productsList, productNameToCheck);
                     System.out.println(checkProductResult);
                     break;
