@@ -24,7 +24,9 @@ public class Main {
             return productName + " is already in the inventory.\n";
         }
 
-        // TODO: Validate if product quantity is less than or equal to 0 (bawal to)
+        if (productQty <= 0) {
+            return "Quantity should be a positive number.\n";
+        }
 
         products.put(productName, productQty);
         return "Product added!\n";
@@ -43,7 +45,9 @@ public class Main {
             return productName + " is currently not in the inventory.\n";
         }
 
-        // TODO: Validate if product quantity is less than or equal to 0 (bawal to)
+        if (productQty <= 0) {
+            return "Quantity should be a positive number.\n";
+        }
 
         products.put(productName, productQty);
         return "Stock updated!\n";
