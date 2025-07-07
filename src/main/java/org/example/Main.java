@@ -13,13 +13,15 @@ public class Main {
         }
 
         for (HashMap.Entry<String, Integer> product: products.entrySet()) {
-            System.out.println(product.getKey() + " - " + product.getValue());
+            System.out.println(product.getKey() + " - " + product.getValue() + " pcs");
         }
 
         System.out.println(); // Print new line
     }
 
     public static String addProduct(HashMap<String, Integer> products, String productName, int productQty) {
+        // TODO: Validation kung nandoon na products list yung productName
+
         products.put(productName, productQty);
         return "Product added!\n";
     }
