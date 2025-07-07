@@ -24,6 +24,8 @@ public class Main {
             return productName + " is already in the inventory.\n";
         }
 
+        // TODO: Validate if product quantity is less than or equal to 0 (bawal to)
+
         products.put(productName, productQty);
         return "Product added!\n";
     }
@@ -41,8 +43,19 @@ public class Main {
             return productName + " is currently not in the inventory.\n";
         }
 
+        // TODO: Validate if product quantity is less than or equal to 0 (bawal to)
+
         products.put(productName, productQty);
         return "Stock updated!\n";
+    }
+
+    public static String removeProduct(HashMap<String, Integer> products, String productName) {
+        if (!products.containsKey(productName)) {
+            return productName + " is currently not in the inventory.\n";
+        }
+
+        products.remove(productName);
+        return "Product removed.\n";
     }
 
     public static void main(String[] args) {
@@ -104,6 +117,11 @@ public class Main {
                     break;
                 case 5:
                     // Remove Product
+                    System.out.print("Enter product name to update: ");
+                    String productNameToRemove = scanner.nextLine();
+
+                    String removeProductResult = removeProduct(productsList, productNameToRemove);
+                    System.out.println(removeProductResult);
                     break;
                 default:
                     isExit = true;
@@ -111,7 +129,5 @@ public class Main {
                     break;
             }
         } while (!isExit);
-
-
     }
 }
