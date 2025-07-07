@@ -18,9 +18,18 @@ public class Main {
 
         System.out.println(); // Print new line
     }
+
     public static String addProduct(HashMap<String, Integer> products, String productName, int productQty) {
         products.put(productName, productQty);
         return "Product added!\n";
+    }
+
+    public static String checkProduct(HashMap<String, Integer> products, String productName) {
+        if (!products.containsKey(productName)) {
+            return productName + " is currently not in the inventory.\n";
+        }
+
+        return productName + " is in stock: " + products.get(productName) + "\n";
     }
 
     public static void main(String[] args) {
@@ -61,6 +70,10 @@ public class Main {
                     break;
                 case 3:
                     // Check Product
+                    System.out.print("Enter product name: ");
+                    String productNameToCheck = scanner.nextLine();
+                    String checkProductResult = checkProduct(productsList, productNameToCheck);
+                    System.out.println(checkProductResult);
                     break;
                 case 4:
                     // Update Stock
