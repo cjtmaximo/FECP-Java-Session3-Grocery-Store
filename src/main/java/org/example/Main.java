@@ -36,6 +36,15 @@ public class Main {
         return productName + " is in stock: " + products.get(productName) + "\n";
     }
 
+    public static String updateStock(HashMap<String, Integer> products, String productName, int productQty) {
+        if (!products.containsKey(productName)) {
+            return productName + " is currently not in the inventory.\n";
+        }
+
+        products.put(productName, productQty);
+        return "Stock updated!\n";
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean isExit = false;
@@ -83,6 +92,15 @@ public class Main {
                     break;
                 case 4:
                     // Update Stock
+                    System.out.print("Enter product name to update: ");
+                    String productNameToUpdate = scanner.nextLine();
+
+                    System.out.print("Enter new stock quantity: ");
+                    int newStockQuantity = scanner.nextInt();
+                    scanner.nextLine(); // Consume new line
+
+                    String updateStockResult = updateStock(productsList, productNameToUpdate, newStockQuantity);
+                    System.out.println(updateStockResult);
                     break;
                 case 5:
                     // Remove Product
