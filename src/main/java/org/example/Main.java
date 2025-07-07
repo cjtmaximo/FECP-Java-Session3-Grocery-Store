@@ -3,6 +3,21 @@ package org.example;
 import java.util.*;
 
 public class Main {
+    public static void viewInventory(HashMap<String, Integer> products) {
+        // Iterate over products in the inventory
+        System.out.println("\nCurrent Inventory:");
+
+        if (products.isEmpty()) {
+            System.out.println("There are currently no products in the inventory.\n");
+            return;
+        }
+
+        for (HashMap.Entry<String, Integer> product: products.entrySet()) {
+            System.out.println(product.getKey() + " - " + product.getValue());
+        }
+
+        System.out.println(); // Print new line
+    }
     public static String addProduct(HashMap<String, Integer> products, String productName, int productQty) {
         products.put(productName, productQty);
         return "Product added!\n";
@@ -31,6 +46,7 @@ public class Main {
             switch (userChoice) {
                 case 1:
                     // View Inventory
+                    viewInventory(productsList);
                     break;
                 case 2:
                     // Add Product
