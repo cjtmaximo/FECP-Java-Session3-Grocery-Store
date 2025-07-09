@@ -13,3 +13,5 @@ Lab 1: Grocery Store Inventory System (Part 1 of 2)
 ![img_4.png](img_4.png)
 #### Exit
 ![img_5.png](img_5.png)
+### Unit Test Output and Test Coverage
+![img_6.png](img_6.png)
